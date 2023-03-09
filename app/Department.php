@@ -4,21 +4,30 @@ namespace App;
 
 class Department
 {
-    /** @var array|Employee[] */
-    public array $employees = [];
-    public string $title;
-    public function __construct(array $employees, string $title)
+
+    public function __construct(
+        private array  $employees,
+        private string $name
+    )
     {
-        $this->employees = $employees;
-        $this->title = $title;
     }
 
-    public function totalEmployeesSalaries(): int
+    public function getTotalSalary(): int
     {
         $total = 0;
         foreach ($this->employees as $employee) {
-            $total += $employee->salary;
+            $total += $employee->getSalary();
         }
         return $total;
+    }
+
+    public function getEmployees(): array
+    {
+        return $this->employees;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
     }
 }

@@ -1,10 +1,6 @@
 {
     "require": {
         "symfony/validator": "^6.2"
-    }
-    ,
-    "require-dev": {
-        "roave/security-advisories": "dev-latest"
     },
     "autoload": {
         "psr-4": {

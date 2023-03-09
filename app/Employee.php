@@ -7,10 +7,10 @@ use DateTime;
 class Employee
 {
     public function __construct(
-        public int      $id,
-        public string   $name,
-        public int      $salary,
-        public DateTime $hireDate,
+        private int      $id,
+        private string   $name,
+        private int      $salary,
+        private DateTime $hireDate,
     ) {
     }
 
@@ -18,6 +18,21 @@ class Employee
     {
         $now = new DateTime();
 
-        return $now->diff($this->hireDate)->format('%Y') . PHP_EOL;
+        return $now->diff($this->hireDate)->format('%Y');
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getSalary(): int
+    {
+        return $this->salary;
     }
 }
